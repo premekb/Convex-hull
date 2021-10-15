@@ -1,14 +1,13 @@
-//
-// Created by Přemek Bělka on 15.10.2021.
-//
-
-#ifndef SEMESTRALKA_POINTS_GENERATOR_H
-#define SEMESTRALKA_POINTS_GENERATOR_H
-
+#pragma once
+#include <vector>
+#include "point.hpp"
 
 class points_generator {
+public:
+    points_generator(unsigned long long int amountOfPoints, unsigned long long int maximumAxisLength);
+    std::vector<point>* get_points();
 
+private:
+    unsigned long long amount_of_points;
+    unsigned long long maximum_axis_length;
 };
-
-
-#endif //SEMESTRALKA_POINTS_GENERATOR_H

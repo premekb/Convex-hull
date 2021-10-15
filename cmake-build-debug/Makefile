@@ -142,6 +142,33 @@ semestralka/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/build
 .PHONY : semestralka/fast
 
+convex_hull_solver.o: convex_hull_solver.cpp.o
+
+.PHONY : convex_hull_solver.o
+
+# target to build an object file
+convex_hull_solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o
+.PHONY : convex_hull_solver.cpp.o
+
+convex_hull_solver.i: convex_hull_solver.cpp.i
+
+.PHONY : convex_hull_solver.i
+
+# target to preprocess a source file
+convex_hull_solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i
+.PHONY : convex_hull_solver.cpp.i
+
+convex_hull_solver.s: convex_hull_solver.cpp.s
+
+.PHONY : convex_hull_solver.s
+
+# target to generate assembly for a file
+convex_hull_solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s
+.PHONY : convex_hull_solver.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -168,6 +195,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+points_generator.o: points_generator.cpp.o
+
+.PHONY : points_generator.o
+
+# target to build an object file
+points_generator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/points_generator.cpp.o
+.PHONY : points_generator.cpp.o
+
+points_generator.i: points_generator.cpp.i
+
+.PHONY : points_generator.i
+
+# target to preprocess a source file
+points_generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/points_generator.cpp.i
+.PHONY : points_generator.cpp.i
+
+points_generator.s: points_generator.cpp.s
+
+.PHONY : points_generator.s
+
+# target to generate assembly for a file
+points_generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/points_generator.cpp.s
+.PHONY : points_generator.cpp.s
 
 svg_helper.o: svg_helper.cpp.o
 
@@ -205,9 +259,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... semestralka"
+	@echo "... convex_hull_solver.o"
+	@echo "... convex_hull_solver.i"
+	@echo "... convex_hull_solver.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... points_generator.o"
+	@echo "... points_generator.i"
+	@echo "... points_generator.s"
 	@echo "... svg_helper.o"
 	@echo "... svg_helper.i"
 	@echo "... svg_helper.s"

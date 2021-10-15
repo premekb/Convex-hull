@@ -102,19 +102,49 @@ CMakeFiles/semestralka.dir/svg_helper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/svg_helper.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/svg_helper.cpp" -o CMakeFiles/semestralka.dir/svg_helper.cpp.s
 
+CMakeFiles/semestralka.dir/points_generator.cpp.o: CMakeFiles/semestralka.dir/flags.make
+CMakeFiles/semestralka.dir/points_generator.cpp.o: ../points_generator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/semestralka.dir/points_generator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/semestralka.dir/points_generator.cpp.o -c "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp"
+
+CMakeFiles/semestralka.dir/points_generator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/semestralka.dir/points_generator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp" > CMakeFiles/semestralka.dir/points_generator.cpp.i
+
+CMakeFiles/semestralka.dir/points_generator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/points_generator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp" -o CMakeFiles/semestralka.dir/points_generator.cpp.s
+
+CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: CMakeFiles/semestralka.dir/flags.make
+CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: ../convex_hull_solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o -c "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp"
+
+CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" > CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i
+
+CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" -o CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s
+
 # Object files for target semestralka
 semestralka_OBJECTS = \
 "CMakeFiles/semestralka.dir/main.cpp.o" \
-"CMakeFiles/semestralka.dir/svg_helper.cpp.o"
+"CMakeFiles/semestralka.dir/svg_helper.cpp.o" \
+"CMakeFiles/semestralka.dir/points_generator.cpp.o" \
+"CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o"
 
 # External object files for target semestralka
 semestralka_EXTERNAL_OBJECTS =
 
 semestralka: CMakeFiles/semestralka.dir/main.cpp.o
 semestralka: CMakeFiles/semestralka.dir/svg_helper.cpp.o
+semestralka: CMakeFiles/semestralka.dir/points_generator.cpp.o
+semestralka: CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o
 semestralka: CMakeFiles/semestralka.dir/build.make
 semestralka: CMakeFiles/semestralka.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable semestralka"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable semestralka"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/semestralka.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

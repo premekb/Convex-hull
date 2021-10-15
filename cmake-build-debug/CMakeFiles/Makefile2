@@ -93,12 +93,12 @@ clean: CMakeFiles/semestralka.dir/clean
 CMakeFiles/semestralka.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=1,2,3 "Built target semestralka"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5 "Built target semestralka"
 .PHONY : CMakeFiles/semestralka.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/semestralka.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/semestralka.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/semestralka.dir/rule
