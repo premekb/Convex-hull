@@ -4,10 +4,13 @@
 #include "svg_helper.h"
 #include "points_generator.h"
 #include "convex_hull_solver.h"
+#include "cmdline/app.cpp"
 std::vector<std::string> get_commands(int argc, char *argv[]);
 
 int main(int argc, char *argv[]) {
     std::vector<std::string> string_commands = get_commands(argc, argv);
+    start_app(string_commands);
+    /**
     points_generator gen(100, 1000);
 
     std::fstream before_file("before_hull.svg", std::fstream::out);
@@ -26,7 +29,7 @@ int main(int argc, char *argv[]) {
 
 
     svg_helper y(&after_file);
-    y.export_to_svg_file(*points, result);
+    y.export_to_svg_file(*points, result);**/
     return 0;
 }
 

@@ -132,10 +132,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/app.cpp">
-			<Option target="semestralka"/>
-		</Unit>
-		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/commands.hpp">
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp">
 			<Option target="semestralka"/>
 		</Unit>
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp">

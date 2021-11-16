@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp
-iostream
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/app.cpp
+vector
 -
-math.h
--
-convex_hull_solver.h
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
+config.hpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp
+
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
 vector
@@ -33,6 +33,8 @@ points_generator.h
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.h
 convex_hull_solver.h
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
+cmdline/app.cpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/app.cpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 

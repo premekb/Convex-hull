@@ -5,6 +5,8 @@ CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: ../convex_hull_solver.cpp
 CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: ../convex_hull_solver.h
 CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: ../point.hpp
 
+CMakeFiles/semestralka.dir/main.cpp.o: ../cmdline/app.cpp
+CMakeFiles/semestralka.dir/main.cpp.o: ../cmdline/config.hpp
 CMakeFiles/semestralka.dir/main.cpp.o: ../convex_hull_solver.h
 CMakeFiles/semestralka.dir/main.cpp.o: ../main.cpp
 CMakeFiles/semestralka.dir/main.cpp.o: ../point.hpp

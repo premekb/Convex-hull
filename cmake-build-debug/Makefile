@@ -166,33 +166,6 @@ semestralka/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/build
 .PHONY : semestralka/fast
 
-cmdline/app.o: cmdline/app.cpp.o
-
-.PHONY : cmdline/app.o
-
-# target to build an object file
-cmdline/app.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.o
-.PHONY : cmdline/app.cpp.o
-
-cmdline/app.i: cmdline/app.cpp.i
-
-.PHONY : cmdline/app.i
-
-# target to preprocess a source file
-cmdline/app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.i
-.PHONY : cmdline/app.cpp.i
-
-cmdline/app.s: cmdline/app.cpp.s
-
-.PHONY : cmdline/app.s
-
-# target to generate assembly for a file
-cmdline/app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.s
-.PHONY : cmdline/app.cpp.s
-
 convex_hull_solver.o: convex_hull_solver.cpp.o
 
 .PHONY : convex_hull_solver.o
@@ -369,9 +342,6 @@ help:
 	@echo "... test"
 	@echo "... semestralka"
 	@echo "... tests"
-	@echo "... cmdline/app.o"
-	@echo "... cmdline/app.i"
-	@echo "... cmdline/app.s"
 	@echo "... convex_hull_solver.o"
 	@echo "... convex_hull_solver.i"
 	@echo "... convex_hull_solver.s"
