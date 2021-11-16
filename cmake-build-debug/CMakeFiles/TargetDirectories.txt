@@ -1,3 +1,5 @@
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/test.dir
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir

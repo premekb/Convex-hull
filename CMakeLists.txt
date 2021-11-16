@@ -8,4 +8,8 @@ set(core-files
     svg_helper.cpp
     svg_helper.h)
 
-add_executable(semestralka main.cpp svg_helper.cpp svg_helper.h points_generator.cpp points_generator.h convex_hull_solver.cpp convex_hull_solver.h)
+add_executable(semestralka main.cpp svg_helper.cpp svg_helper.h points_generator.cpp points_generator.h convex_hull_solver.cpp convex_hull_solver.h cmdline/app.cpp cmdline/commands.hpp)
+
+add_executable(tests tests/quickhull_test.cpp tests/tests_main.cpp convex_hull_solver.cpp convex_hull_solver.h)
+enable_testing()
+add_test(NAME tests COMMAND tests)

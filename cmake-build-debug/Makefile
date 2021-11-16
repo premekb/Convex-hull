@@ -97,6 +97,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	"/Users/premekbelka/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/211.7628.27/CLion.app/Contents/bin/cmake/mac/bin/ctest" --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug//CMakeFiles/progress.marks"
@@ -130,6 +141,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
+#=============================================================================
 # Target rules for targets named semestralka
 
 # Build rule for target.
@@ -142,12 +166,40 @@ semestralka/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/build
 .PHONY : semestralka/fast
 
+cmdline/app.o: cmdline/app.cpp.o
+
+.PHONY : cmdline/app.o
+
+# target to build an object file
+cmdline/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.o
+.PHONY : cmdline/app.cpp.o
+
+cmdline/app.i: cmdline/app.cpp.i
+
+.PHONY : cmdline/app.i
+
+# target to preprocess a source file
+cmdline/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.i
+.PHONY : cmdline/app.cpp.i
+
+cmdline/app.s: cmdline/app.cpp.s
+
+.PHONY : cmdline/app.s
+
+# target to generate assembly for a file
+cmdline/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/cmdline/app.cpp.s
+.PHONY : cmdline/app.cpp.s
+
 convex_hull_solver.o: convex_hull_solver.cpp.o
 
 .PHONY : convex_hull_solver.o
 
 # target to build an object file
 convex_hull_solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o
 .PHONY : convex_hull_solver.cpp.o
 
@@ -157,6 +209,7 @@ convex_hull_solver.i: convex_hull_solver.cpp.i
 
 # target to preprocess a source file
 convex_hull_solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i
 .PHONY : convex_hull_solver.cpp.i
 
@@ -166,6 +219,7 @@ convex_hull_solver.s: convex_hull_solver.cpp.s
 
 # target to generate assembly for a file
 convex_hull_solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s
 .PHONY : convex_hull_solver.cpp.s
 
@@ -250,6 +304,60 @@ svg_helper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/svg_helper.cpp.s
 .PHONY : svg_helper.cpp.s
 
+tests/quickhull_test.o: tests/quickhull_test.cpp.o
+
+.PHONY : tests/quickhull_test.o
+
+# target to build an object file
+tests/quickhull_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/quickhull_test.cpp.o
+.PHONY : tests/quickhull_test.cpp.o
+
+tests/quickhull_test.i: tests/quickhull_test.cpp.i
+
+.PHONY : tests/quickhull_test.i
+
+# target to preprocess a source file
+tests/quickhull_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/quickhull_test.cpp.i
+.PHONY : tests/quickhull_test.cpp.i
+
+tests/quickhull_test.s: tests/quickhull_test.cpp.s
+
+.PHONY : tests/quickhull_test.s
+
+# target to generate assembly for a file
+tests/quickhull_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/quickhull_test.cpp.s
+.PHONY : tests/quickhull_test.cpp.s
+
+tests/tests_main.o: tests/tests_main.cpp.o
+
+.PHONY : tests/tests_main.o
+
+# target to build an object file
+tests/tests_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/tests_main.cpp.o
+.PHONY : tests/tests_main.cpp.o
+
+tests/tests_main.i: tests/tests_main.cpp.i
+
+.PHONY : tests/tests_main.i
+
+# target to preprocess a source file
+tests/tests_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/tests_main.cpp.i
+.PHONY : tests/tests_main.cpp.i
+
+tests/tests_main.s: tests/tests_main.cpp.s
+
+.PHONY : tests/tests_main.s
+
+# target to generate assembly for a file
+tests/tests_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tests/tests_main.cpp.s
+.PHONY : tests/tests_main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -258,7 +366,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... semestralka"
+	@echo "... tests"
+	@echo "... cmdline/app.o"
+	@echo "... cmdline/app.i"
+	@echo "... cmdline/app.s"
 	@echo "... convex_hull_solver.o"
 	@echo "... convex_hull_solver.i"
 	@echo "... convex_hull_solver.s"
@@ -271,6 +384,12 @@ help:
 	@echo "... svg_helper.o"
 	@echo "... svg_helper.i"
 	@echo "... svg_helper.s"
+	@echo "... tests/quickhull_test.o"
+	@echo "... tests/quickhull_test.i"
+	@echo "... tests/quickhull_test.s"
+	@echo "... tests/tests_main.o"
+	@echo "... tests/tests_main.i"
+	@echo "... tests/tests_main.s"
 .PHONY : help
 
 
