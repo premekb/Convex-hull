@@ -146,6 +146,12 @@
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/main.cpp">
 			<Option target="semestralka"/>
 		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.cpp">
+			<Option target="semestralka"/>
+		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp">
+			<Option target="semestralka"/>
+		</Unit>
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp">
 			<Option target="semestralka"/>
 		</Unit>

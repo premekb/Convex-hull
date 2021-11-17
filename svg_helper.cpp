@@ -1,6 +1,7 @@
 #include <vector>
 #include <math.h>
 #include "svg_helper.h"
+#include <math.h>
 
 void svg_helper::insert_point(point point, svg_helper::point_color color) {
     if (color == black_color){
@@ -55,16 +56,25 @@ void svg_helper::draw_line_between_points(std::pair<point, point> points) {
 bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std::vector<point> &hull_points) {
     this->insert_svg_header();
 
-    for (point p : points){
+    double adjusted_ratio = get_ratio_change(1000, points);
+    std::vector<point> points_adjusted_ratio = change_ratio(points, adjusted_ratio);
+    std::vector<point> hull_points_adjusted_ratio = change_ratio(hull_points, adjusted_ratio);
+
+    for (point p : points_adjusted_ratio){
         this->insert_point(p, green_color);
     }
 
-    for (point p : hull_points){
+    for (point p : hull_points_adjusted_ratio){
         insert_point(p, red_color);
-        //std::pair<point, point> closest_points = find_two_closest_points(hull_points, p);
-        //draw_line_between_points(std::pair<point, point>{closest_points.first, p});
-        //draw_line_between_points(std::pair<point, point>{closest_points.second, p});
     }
+
+    std::vector<std::pair<double, point>> angles = get_points_sorted_by_angle(hull_points_adjusted_ratio, point(500, 500)); //TODO center
+
+    for (int i = 0; i < angles.size() - 1; i++){
+        draw_line_between_points(std::make_pair(angles[i].second, angles[i + 1].second));
+    }
+
+    draw_line_between_points(std::make_pair(angles[angles.size() - 1].second, angles[0].second));
 
     this->insert_svg_ending_tag();
     this->file_stream->close();
@@ -72,30 +82,47 @@ bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std:
 
 }
 
-std::pair<point, point> svg_helper::find_two_closest_points(const std::vector<point> &points, point p) {
-    double min_distance;
-    point closest_point = point(-1, -1);
-    point second_closest_point = point(-1, -1);
+/**
+ * Calculates the angle of points in respect to a given center and sorts them.
+ * @return
+ */
+std::vector<std::pair<double, point>>
+svg_helper::get_points_sorted_by_angle(const std::vector<point>& points, point center){
+    std::vector<std::pair<double, point>> angles;
 
-    double curr_distance;
-    for (point p2 : points){
-        if (p2.x == p.x && p2.y == p.y) continue;
-        if (closest_point.x == -1) {
-            closest_point = p2;
-            second_closest_point = p2;
-            min_distance = get_point_distance(p, p2);
-            continue;
-        }
-        curr_distance = get_point_distance(p, p2);
-        if (curr_distance < min_distance){
-            second_closest_point = closest_point;
-            min_distance = curr_distance;
-            closest_point = p2;
-        }
+    for (point p : points){
+        angles.push_back(std::make_pair(atan2(p.y - center.y, p.x - center.x), p));
     }
-    return std::pair<point, point>{closest_point, second_closest_point};
+
+    std::sort(angles.begin(), angles.end(), [](auto &left, auto &right) {
+        return left.first < right.first;
+    });
+
+    return angles;
 }
 
-double svg_helper::get_point_distance(point point1, point point2) {
-    return sqrt(((point2.x - point1.x) * (point2.x - point1.x) + ((point2.y - point1.y) * (point2.y - point1.y))));
+/**
+ * Changes the ratio of the points, so that they can be drawn on a 1000x1000 canvas.
+ *
+ * @param points
+ * @return
+ */
+std::vector<point> svg_helper::change_ratio(const std::vector<point> &points, double ratio_change) {
+    std::vector<point> changed_points;
+
+    for (point p : points){
+        changed_points.push_back(point(p.x / ratio_change, p.y / ratio_change));
+    }
+
+    return changed_points;
+}
+
+double svg_helper::get_ratio_change(const int &max_axis_length, const std::vector<point> &points) {
+    double highest_axis_value = 0; // TODO if i decide to use negative values too
+    for (point p : points){
+        if (p.x > highest_axis_value) highest_axis_value = p.x;
+        if (p.y > highest_axis_value) highest_axis_value = p.y;
+    }
+    double result = highest_axis_value / max_axis_length;
+    return result > 1 ? result : 1;
 }

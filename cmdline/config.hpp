@@ -5,10 +5,13 @@ struct config {
     bool help;
 
     bool svg;
-    std::string svg_destination;
+    std::string svg_filename;
 
     bool random;
     int random_amount;
+
+    bool input_file;
+    std::string input_filename;
 
     bool multithreaded;
     int threads;
@@ -17,18 +20,15 @@ struct config {
         CONSOLE, FILE
     };
 
-    IO input;
-    std::string input_destination;
-
     IO output;
-    std::string output_destination;
+    std::string output_filename;
 
     config(){
         help = false;
         svg = false;
         random = false;
         multithreaded = false;
-        input = IO::CONSOLE;
+        input_file = false;
         output = IO::CONSOLE;
     }
 };

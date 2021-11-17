@@ -13,6 +13,9 @@ CMakeFiles/semestralka.dir/main.cpp.o: ../point.hpp
 CMakeFiles/semestralka.dir/main.cpp.o: ../points_generator.h
 CMakeFiles/semestralka.dir/main.cpp.o: ../svg_helper.h
 
+CMakeFiles/semestralka.dir/point.cpp.o: ../point.cpp
+CMakeFiles/semestralka.dir/point.cpp.o: ../point.hpp
+
 CMakeFiles/semestralka.dir/points_generator.cpp.o: ../point.hpp
 CMakeFiles/semestralka.dir/points_generator.cpp.o: ../points_generator.cpp
 CMakeFiles/semestralka.dir/points_generator.cpp.o: ../points_generator.h

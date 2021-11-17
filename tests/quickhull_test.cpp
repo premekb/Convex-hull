@@ -18,7 +18,7 @@ void compare_result(std::vector<point>& expected, std::vector<point>& actual){
     }
 }
 
-TEST_CASE("Basic Hull 20 points"){
+TEST_CASE("Basic Hull single-thread 20 points"){
     std::vector<point> inputs = {
             point(474,533),
            point(15,767),
@@ -59,7 +59,7 @@ TEST_CASE("Basic Hull 20 points"){
     compare_result(convex_hull, result);
 }
 
-TEST_CASE("Basic Hull 50 points"){
+TEST_CASE("Basic Hull single-thread 50 points"){
     std::vector<point> inputs = {
             point(489,195),
             point(740,421),
@@ -130,7 +130,7 @@ TEST_CASE("Basic Hull 50 points"){
     compare_result(convex_hull, result);
 }
 
-TEST_CASE("Basic Hull 100 points"){
+TEST_CASE("Basic Hull single-thread 100 points"){
     std::vector<point> inputs = {
            point( 352,581),
            point( 448,679),

@@ -5,32 +5,130 @@ void start_app(std::vector<std::string>& commands);
 config parse_commands(std::vector<std::string>& commands);
 std::vector<std::string> split(std::string const &line, char delim);
 void print_help();
+std::vector<point> start_quickhull(const config& cfg, std::vector<point>& points);
+std::vector<point> get_points(const config& cfg);
+void print_result(const config& cfg, const std::vector<point>& points, const std::vector<point>& result);
+void print_points(std::ostream& out, const std::vector<point>& points, const std::vector<point>& result);
+void validate_cfg(config& cfg);
+
+void validate_cfg(config& cfg){
+    if (cfg.random && cfg.input_file){
+        throw std::logic_error("Cannot generate random points and read from file at the same time.");
+    }
+
+    if (!cfg.random && !cfg.input_file){
+        throw std::logic_error("You need to specify either the --random cmd option, or the --input cmd option.");
+    }
+}
 
 void start_app(std::vector<std::string>& commands){
     config cfg = parse_commands(commands);
+    validate_cfg(cfg);
+
     if (cfg.help) print_help();
+
+    std::vector<point> points = get_points(cfg);
+
+    std::vector<point> result = start_quickhull(cfg, points);
+
+    print_result(cfg, points, result);
+}
+
+std::vector<point> get_points(const config& cfg){
+    if (cfg.random){
+        points_generator gen(cfg.random_amount, 10000);
+        return *gen.get_points();
+    }
+}
+
+void print_result(const config& cfg, const std::vector<point>& points, const std::vector<point>& result){
+    if (cfg.svg){
+        std::fstream file(cfg.svg_filename + ".svg", std::fstream::out);
+        svg_helper y(&file);
+        y.export_to_svg_file(points, result);
+    }
+
+    if (cfg.output == config::IO::CONSOLE){
+        print_points(std::cout, points, result);
+    }
+
+    else if (cfg.output == config::IO::FILE){
+        std::fstream file( cfg.output_filename + ".txt", std::fstream::out);
+        print_points(file, points, result);
+    }
+}
+
+void print_points(std::ostream& out, const std::vector<point>& points, const std::vector<point>& result){
+    out << "Input points set:" << std::endl;
+    for (const point& p : points){
+        out << p;
+    }
+    out << "##################################" << std::endl;
+    out << "Convex hull:" << std::endl;
+    for (const point& p : result){
+        out << p;
+    }
+}
+
+std::vector<point> start_quickhull(const config& cfg, std::vector<point>& points){
+    convex_hull_solver solver = convex_hull_solver(&points);
+    std::vector<point> result = solver.quickhull();
+    return result;
 }
 
 config parse_commands(std::vector<std::string>& commands){
     config cfg;
 
-    for (const std::string& string_command : commands){
-        auto args = split(string_command, ':');
-        if (string_command == "--help") cfg.help = true;
-        else if (string_command == "--multithreaded") {
+    for (const std::string& command_with_option : commands){
+        auto args = split(command_with_option, ':');
+        auto cmd = args.at(0);
+        if (cmd == "--help") cfg.help = true;
+        else if (cmd == "--multithreaded") {
             cfg.multithreaded = true;
+            try{
+                cfg.random_amount = std::stoi(args.at(1));
+                if (cfg.random_amount <= 0) throw std::invalid_argument("Invalid amount of threads..");
+            }
+            catch(...){
+                throw std::invalid_argument("Invalid --mutlithreaded argument. Run program with --help for more info.");
+            }
         }
-        else if (string_command == "--random") {
+        else if (cmd == "--random") {
             cfg.random = true;
+            try{
+                cfg.random_amount = std::stoi(args.at(1));
+                if (cfg.random_amount < 0) throw std::invalid_argument("Amoount of points to be generated randomly cannot be negative.");
+            }
+            catch(...){
+                throw std::invalid_argument("Invalid --random argument. Run program with --help for more info.");
+            }
         }
-        else if (string_command == "--svg") {
+        else if (cmd == "--svg") {
             cfg.svg = true;
+            try{
+                cfg.svg_filename = args.at(1);
+            }
+            catch(...){
+                throw std::invalid_argument("Invalid --svg argument. Run program with --help for more info.");
+            }
         }
-        else if (string_command == "--input") {
-            cfg.input = config::IO::FILE;
+        else if (cmd == "--input") {
+            cfg.input_file = true;
+            try{
+                cfg.input_filename = args.at(1);
+            }
+            catch(...){
+                throw std::invalid_argument("Invalid --input argument. Run program with --help for more info.");
+            }
         }
-        else if (string_command == "--output") {
-            cfg.input = config::IO::FILE;
+        else if (cmd == "--output") {
+            cfg.output = config::IO::FILE;
+            try{
+                cfg.output_filename = args.at(1);
+            }
+            catch(...){
+                throw std::invalid_argument("Invalid --output argument. Run program with --help for more info.");
+            }
         }
         else{
             throw std::logic_error("Unknown command line option passed.");

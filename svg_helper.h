@@ -22,8 +22,9 @@ private:
     void draw_line_between_points(std::pair<point, point> points);
     void insert_svg_header();
     void insert_svg_ending_tag();
-    std::pair<point, point> find_two_closest_points(const std::vector<point> &points, point p);
-    double get_point_distance(point point1, point point2);
+    std::vector<std::pair<double, point>> get_points_sorted_by_angle(const std::vector<point>& points, point center);
+    std::vector<point> change_ratio(const std::vector<point>& points, double ratio_change);
+    double get_ratio_change(const int& max_axis_length, const std::vector<point>& points);
 };
 
 
