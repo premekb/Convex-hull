@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir/convex_hull_solver.cpp.o"
+  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o"
+  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir/quickhull_single_thead/convex_hull_solver.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/tests/quickhull_test.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir/tests/quickhull_test.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/tests/tests_main.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/tests.dir/tests/tests_main.cpp.o"
   )

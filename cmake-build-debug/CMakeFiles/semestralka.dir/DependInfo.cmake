@@ -4,10 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/main.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/main.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/point.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/points_generator.cpp.o"
+  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o"
+  "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o"
   "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/svg_helper.cpp" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles/semestralka.dir/svg_helper.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

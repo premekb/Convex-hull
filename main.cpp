@@ -3,7 +3,7 @@
 #include <vector>
 #include "svg_helper.h"
 #include "points_generator.h"
-#include "convex_hull_solver.h"
+#include "quickhull_single_thead/convex_hull_solver.h"
 #include "cmdline/app.cpp"
 std::vector<std::string> get_commands(int argc, char *argv[]);
 

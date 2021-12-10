@@ -10,6 +10,7 @@ std::vector<point> get_points(const config& cfg);
 void print_result(const config& cfg, const std::vector<point>& points, const std::vector<point>& result);
 void print_points(std::ostream& out, const std::vector<point>& points, const std::vector<point>& result);
 void validate_cfg(config& cfg);
+void validate_line(std::string& line);
 
 void validate_cfg(config& cfg){
     if (cfg.random && cfg.input_file){
@@ -38,6 +39,48 @@ std::vector<point> get_points(const config& cfg){
     if (cfg.random){
         points_generator gen(cfg.random_amount, 10000);
         return *gen.get_points();
+    }
+
+    else if (cfg.input_file){
+        std::fstream input_file(cfg.input_filename, std::fstream::in);
+        if (!input_file.good()){
+            throw std::logic_error("Input file does not exist");
+        }
+        std::string line;
+        int x_axis, y_axis;
+        std::vector<std::string> split_line;
+        std::vector<point> points;
+
+        while (std::getline(input_file, line)){
+            validate_line(line);
+              split_line = split(line, ',');
+              x_axis = std::stoi(split_line.at(0));
+              y_axis = std::stoi(split_line.at(1));
+              points.push_back(point(x_axis, y_axis));
+        }
+
+        return points;
+    }
+}
+
+void validate_line(std::string& line){
+    int coma_counter = 0;
+    bool number_after_coma = false;
+    bool number_before_coma = false;
+    std::string::const_iterator it = line.begin();
+    while (it != line.end() && (std::isdigit(*it) || *it == ',')){
+        ++it;
+        if (*it == ','){
+            coma_counter++;
+        }
+        if (coma_counter == 1 && std::isdigit(*it)) number_after_coma = true;
+        if (coma_counter == 0 && std::isdigit(*it)) number_before_coma = true;
+    }
+    if (!(!line.empty() && it == line.end() && coma_counter == 1 && number_after_coma && number_before_coma)) {
+        throw std::logic_error("Invalid input format. The required format is as follows: \n"
+                               "point1.x_axis, point1.y_axis\n"
+                               "point2.x_axis, point2.y_axis\n"
+                               "...\n");
     }
 }
 

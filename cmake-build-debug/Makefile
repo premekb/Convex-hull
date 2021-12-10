@@ -166,36 +166,6 @@ semestralka/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/build
 .PHONY : semestralka/fast
 
-convex_hull_solver.o: convex_hull_solver.cpp.o
-
-.PHONY : convex_hull_solver.o
-
-# target to build an object file
-convex_hull_solver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o
-.PHONY : convex_hull_solver.cpp.o
-
-convex_hull_solver.i: convex_hull_solver.cpp.i
-
-.PHONY : convex_hull_solver.i
-
-# target to preprocess a source file
-convex_hull_solver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i
-.PHONY : convex_hull_solver.cpp.i
-
-convex_hull_solver.s: convex_hull_solver.cpp.s
-
-.PHONY : convex_hull_solver.s
-
-# target to generate assembly for a file
-convex_hull_solver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/convex_hull_solver.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s
-.PHONY : convex_hull_solver.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -276,6 +246,66 @@ points_generator.s: points_generator.cpp.s
 points_generator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/points_generator.cpp.s
 .PHONY : points_generator.cpp.s
+
+quickhull_parallel/convex_hull_solver_parallel.o: quickhull_parallel/convex_hull_solver_parallel.cpp.o
+
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.o
+
+# target to build an object file
+quickhull_parallel/convex_hull_solver_parallel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.cpp.o
+
+quickhull_parallel/convex_hull_solver_parallel.i: quickhull_parallel/convex_hull_solver_parallel.cpp.i
+
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.i
+
+# target to preprocess a source file
+quickhull_parallel/convex_hull_solver_parallel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.i
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.cpp.i
+
+quickhull_parallel/convex_hull_solver_parallel.s: quickhull_parallel/convex_hull_solver_parallel.cpp.s
+
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.s
+
+# target to generate assembly for a file
+quickhull_parallel/convex_hull_solver_parallel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.s
+.PHONY : quickhull_parallel/convex_hull_solver_parallel.cpp.s
+
+quickhull_single_thead/convex_hull_solver.o: quickhull_single_thead/convex_hull_solver.cpp.o
+
+.PHONY : quickhull_single_thead/convex_hull_solver.o
+
+# target to build an object file
+quickhull_single_thead/convex_hull_solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_single_thead/convex_hull_solver.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o
+.PHONY : quickhull_single_thead/convex_hull_solver.cpp.o
+
+quickhull_single_thead/convex_hull_solver.i: quickhull_single_thead/convex_hull_solver.cpp.i
+
+.PHONY : quickhull_single_thead/convex_hull_solver.i
+
+# target to preprocess a source file
+quickhull_single_thead/convex_hull_solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_single_thead/convex_hull_solver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.i
+.PHONY : quickhull_single_thead/convex_hull_solver.cpp.i
+
+quickhull_single_thead/convex_hull_solver.s: quickhull_single_thead/convex_hull_solver.cpp.s
+
+.PHONY : quickhull_single_thead/convex_hull_solver.s
+
+# target to generate assembly for a file
+quickhull_single_thead/convex_hull_solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/quickhull_single_thead/convex_hull_solver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/semestralka.dir/build.make CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.s
+.PHONY : quickhull_single_thead/convex_hull_solver.cpp.s
 
 svg_helper.o: svg_helper.cpp.o
 
@@ -369,9 +399,6 @@ help:
 	@echo "... test"
 	@echo "... semestralka"
 	@echo "... tests"
-	@echo "... convex_hull_solver.o"
-	@echo "... convex_hull_solver.i"
-	@echo "... convex_hull_solver.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -381,6 +408,12 @@ help:
 	@echo "... points_generator.o"
 	@echo "... points_generator.i"
 	@echo "... points_generator.s"
+	@echo "... quickhull_parallel/convex_hull_solver_parallel.o"
+	@echo "... quickhull_parallel/convex_hull_solver_parallel.i"
+	@echo "... quickhull_parallel/convex_hull_solver_parallel.s"
+	@echo "... quickhull_single_thead/convex_hull_solver.o"
+	@echo "... quickhull_single_thead/convex_hull_solver.i"
+	@echo "... quickhull_single_thead/convex_hull_solver.s"
 	@echo "... svg_helper.o"
 	@echo "... svg_helper.i"
 	@echo "... svg_helper.s"

@@ -6,12 +6,20 @@
 
 #IncludeRegexTransform: 
 
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
+iostream
+-
+
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
 vector
 -
-point.hpp
+../point.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
+vector
+-
+../point.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/tests/catch.hpp
@@ -613,6 +621,8 @@ catch.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/tests/catch.hpp
 ../point.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
-../convex_hull_solver.h
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
+../quickhull_single_thead/convex_hull_solver.h
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
+../quickhull_parallel/convex_hull_solver_parallel.hpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
 

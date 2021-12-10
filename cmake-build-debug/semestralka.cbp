@@ -135,14 +135,6 @@
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp">
 			<Option target="semestralka"/>
 		</Unit>
-		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp">
-			<Option target="tests"/>
-			<Option target="semestralka"/>
-		</Unit>
-		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h">
-			<Option target="tests"/>
-			<Option target="semestralka"/>
-		</Unit>
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/main.cpp">
 			<Option target="semestralka"/>
 		</Unit>
@@ -156,6 +148,22 @@
 			<Option target="semestralka"/>
 		</Unit>
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.h">
+			<Option target="semestralka"/>
+		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp">
+			<Option target="tests"/>
+			<Option target="semestralka"/>
+		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp">
+			<Option target="tests"/>
+			<Option target="semestralka"/>
+		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp">
+			<Option target="tests"/>
+			<Option target="semestralka"/>
+		</Unit>
+		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h">
+			<Option target="tests"/>
 			<Option target="semestralka"/>
 		</Unit>
 		<Unit filename="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/svg_helper.cpp">

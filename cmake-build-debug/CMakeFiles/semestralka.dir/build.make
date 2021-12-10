@@ -115,18 +115,18 @@ CMakeFiles/semestralka.dir/points_generator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/points_generator.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.cpp" -o CMakeFiles/semestralka.dir/points_generator.cpp.s
 
-CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: CMakeFiles/semestralka.dir/flags.make
-CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o: ../convex_hull_solver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o -c "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp"
+CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o: CMakeFiles/semestralka.dir/flags.make
+CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o: ../quickhull_single_thead/convex_hull_solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o -c "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp"
 
-CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" > CMakeFiles/semestralka.dir/convex_hull_solver.cpp.i
+CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp" > CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.i
 
-CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.cpp" -o CMakeFiles/semestralka.dir/convex_hull_solver.cpp.s
+CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp" -o CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.s
 
 CMakeFiles/semestralka.dir/point.cpp.o: CMakeFiles/semestralka.dir/flags.make
 CMakeFiles/semestralka.dir/point.cpp.o: ../point.cpp
@@ -141,13 +141,27 @@ CMakeFiles/semestralka.dir/point.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/point.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.cpp" -o CMakeFiles/semestralka.dir/point.cpp.s
 
+CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o: CMakeFiles/semestralka.dir/flags.make
+CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o: ../quickhull_parallel/convex_hull_solver_parallel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o -c "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp"
+
+CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp" > CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.i
+
+CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp" -o CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.s
+
 # Object files for target semestralka
 semestralka_OBJECTS = \
 "CMakeFiles/semestralka.dir/main.cpp.o" \
 "CMakeFiles/semestralka.dir/svg_helper.cpp.o" \
 "CMakeFiles/semestralka.dir/points_generator.cpp.o" \
-"CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o" \
-"CMakeFiles/semestralka.dir/point.cpp.o"
+"CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o" \
+"CMakeFiles/semestralka.dir/point.cpp.o" \
+"CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o"
 
 # External object files for target semestralka
 semestralka_EXTERNAL_OBJECTS =
@@ -155,11 +169,12 @@ semestralka_EXTERNAL_OBJECTS =
 semestralka: CMakeFiles/semestralka.dir/main.cpp.o
 semestralka: CMakeFiles/semestralka.dir/svg_helper.cpp.o
 semestralka: CMakeFiles/semestralka.dir/points_generator.cpp.o
-semestralka: CMakeFiles/semestralka.dir/convex_hull_solver.cpp.o
+semestralka: CMakeFiles/semestralka.dir/quickhull_single_thead/convex_hull_solver.cpp.o
 semestralka: CMakeFiles/semestralka.dir/point.cpp.o
+semestralka: CMakeFiles/semestralka.dir/quickhull_parallel/convex_hull_solver_parallel.cpp.o
 semestralka: CMakeFiles/semestralka.dir/build.make
 semestralka: CMakeFiles/semestralka.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable semestralka"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable semestralka"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/semestralka.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
