@@ -24,6 +24,14 @@ vector
 ../point.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.cpp
+iostream
+-
+math.h
+-
+convex_hull_solver.h
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
+
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
 vector
 -

@@ -71,8 +71,6 @@ void convex_hull_solver_parallel::findhull(std::vector<point> points, point poin
         }
     }
 
-
-
     if (this->threads_started < this->threads_max){
         std::thread t1(&convex_hull_solver_parallel::findhull, this, left_points, point1, max_point);
         std::thread t2(&convex_hull_solver_parallel::findhull, this, right_points, max_point, point2);
@@ -116,12 +114,12 @@ std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_poin
     return *result;
 }
 
-bool convex_hull_solver_parallel::is_point_left(point leftmost, point rightmost, point tested_point) {
+bool convex_hull_solver_parallel::is_point_left(point& leftmost, point& rightmost, point& tested_point) {
     return (rightmost.x - leftmost.x) * (tested_point.y - leftmost.y) - (tested_point.x - leftmost.x) * (rightmost.y - leftmost.y) > 0;
 }
 
 
-double convex_hull_solver_parallel::distance_from_line(point line_point1, point line_point2, point tested_point) {
+double convex_hull_solver_parallel::distance_from_line(point& line_point1, point& line_point2, point& tested_point) {
     double numerator = abs((line_point2.x - line_point1.x) * (line_point1.y - tested_point.y) - (line_point1.x - tested_point.x) * (line_point2.y - line_point1.y));
     double denominator = sqrt((line_point2.x - line_point1.x) * (line_point2.x - line_point1.x) + (line_point2.y - line_point1.y) * (line_point2.y - line_point1.y));
     return numerator / denominator;
@@ -157,7 +155,7 @@ bool convex_hull_solver_parallel::is_in_triangle(point& t_point1, point& t_point
     return 0 <= a && a <= 1 && 0 <= b && b <= 1 && 0 <= c && c <= 1;
 }
 
-void convex_hull_solver_parallel::add_to_result(point p){
+void convex_hull_solver_parallel::add_to_result(point& p){
     std::unique_lock<std::mutex> lock(*this->mutex);
     result.push_back(p);
 }
