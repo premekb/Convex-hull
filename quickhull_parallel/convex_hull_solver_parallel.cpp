@@ -18,6 +18,7 @@ std::vector<point> convex_hull_solver_parallel::quickhull_parallel() {
     std::vector<point> right_points;
 
     for (point p : this->points){
+        if (p == leftmost || p == rightmost) continue;
         if (is_point_left(leftmost, rightmost, p)){
             left_points.push_back(p);
         }
@@ -57,7 +58,7 @@ void convex_hull_solver_parallel::findhull(std::vector<point> points, point poin
     std::vector<point> right_points;
 
     for (point p : points){
-        if (p == max_point || p == point1 || p == point2){
+        if (p == max_point){
             continue;
         }
         if (!is_in_triangle(point1, point2, max_point, p)){
