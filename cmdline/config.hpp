@@ -16,6 +16,8 @@ struct config {
     bool multithreaded;
     int threads;
 
+    bool comparison_mode;
+
     enum class IO {
         CONSOLE, FILE
     };
@@ -29,7 +31,9 @@ struct config {
         random = false;
         multithreaded = false;
         input_file = false;
+        comparison_mode = false;
         output = IO::CONSOLE;
+        threads = 2;
     }
 };
 

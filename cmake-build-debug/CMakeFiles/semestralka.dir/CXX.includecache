@@ -9,16 +9,12 @@
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/app.cpp
 vector
 -
+chrono
+-
 config.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/config.hpp
-
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
-vector
--
-point.hpp
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/main.cpp
 iostream
@@ -31,8 +27,10 @@ svg_helper.h
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/svg_helper.h
 points_generator.h
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/points_generator.h
-convex_hull_solver.h
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/convex_hull_solver.h
+quickhull_single_thead/convex_hull_solver.h
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
+quickhull_parallel/convex_hull_solver_parallel.hpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
 cmdline/app.cpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmdline/app.cpp
 
@@ -44,6 +42,18 @@ iostream
 vector
 -
 point.hpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
+
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
+vector
+-
+../point.hpp
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
+
+/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_single_thead/convex_hull_solver.h
+vector
+-
+../point.hpp
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/point.hpp
 
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/svg_helper.h

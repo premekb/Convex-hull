@@ -1,4 +1,5 @@
 #include <vector>
+#include <chrono>
 #include "config.hpp"
 
 void start_app(std::vector<std::string>& commands);
@@ -11,6 +12,12 @@ void print_result(const config& cfg, const std::vector<point>& points, const std
 void print_points(std::ostream& out, const std::vector<point>& points, const std::vector<point>& result);
 void validate_cfg(config& cfg);
 void validate_line(std::string& line);
+std::vector<point> start_quickhull_comparison(const config& cfg, std::vector<point>& points);
+
+template <typename TimePoint>
+std::chrono::milliseconds to_ms(TimePoint tp) {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(tp);
+}
 
 void validate_cfg(config& cfg){
     if (cfg.random && cfg.input_file){
@@ -24,15 +31,21 @@ void validate_cfg(config& cfg){
 
 void start_app(std::vector<std::string>& commands){
     config cfg = parse_commands(commands);
+    std::vector<point> result;
     validate_cfg(cfg);
 
     if (cfg.help) print_help();
 
     std::vector<point> points = get_points(cfg);
 
-    std::vector<point> result = start_quickhull(cfg, points);
+    if (cfg.comparison_mode){
+         result = start_quickhull_comparison(cfg, points);
+    }
 
-    print_result(cfg, points, result);
+    else{
+        result = start_quickhull(cfg, points);
+        print_result(cfg, points, result);
+    }
 }
 
 std::vector<point> get_points(const config& cfg){
@@ -114,8 +127,32 @@ void print_points(std::ostream& out, const std::vector<point>& points, const std
 }
 
 std::vector<point> start_quickhull(const config& cfg, std::vector<point>& points){
+    if (cfg.multithreaded){
+        convex_hull_solver_parallel solver = convex_hull_solver_parallel(&points, cfg.threads);
+        std::vector<point> result = solver.quickhull_parallel();
+        return result;
+    }
+
+    else{
+        convex_hull_solver solver = convex_hull_solver(&points);
+        std::vector<point> result = solver.quickhull();
+        return result;
+    }
+}
+
+std::vector<point> start_quickhull_comparison(const config& cfg, std::vector<point>& points){
+    auto start_single = std::chrono::high_resolution_clock::now();
     convex_hull_solver solver = convex_hull_solver(&points);
     std::vector<point> result = solver.quickhull();
+    auto end_single = std::chrono::high_resolution_clock::now();
+    std::cout << "Single thread: needed " << to_ms(end_single - start_single).count() << " ms to finish.\n";
+
+    auto start_parallel = std::chrono::high_resolution_clock::now();
+    convex_hull_solver_parallel solver_parallel = convex_hull_solver_parallel(&points, cfg.threads);
+    std::vector<point> result_parallel = solver_parallel.quickhull_parallel();
+    auto end_parallel = std::chrono::high_resolution_clock::now();
+    std::cout << "Parallel: needed " << to_ms(end_parallel - start_parallel).count() << " ms to finish.\n";
+
     return result;
 }
 
@@ -129,21 +166,21 @@ config parse_commands(std::vector<std::string>& commands){
         else if (cmd == "--multithreaded") {
             cfg.multithreaded = true;
             try{
-                cfg.random_amount = std::stoi(args.at(1));
-                if (cfg.random_amount <= 0) throw std::invalid_argument("Invalid amount of threads..");
+                cfg.threads = std::stoi(args.at(1));
+                if (cfg.threads <= 1) throw std::invalid_argument("");
             }
             catch(...){
-                throw std::invalid_argument("Invalid --mutlithreaded argument. Run program with --help for more info.");
+                throw std::invalid_argument("Invalid amount of threads. At least 2 threads needed.\n Invalid --mutlithreaded argument. Run program with --help for more info.");
             }
         }
         else if (cmd == "--random") {
             cfg.random = true;
             try{
                 cfg.random_amount = std::stoi(args.at(1));
-                if (cfg.random_amount < 0) throw std::invalid_argument("Amoount of points to be generated randomly cannot be negative.");
+                if (cfg.random_amount < 0) throw std::invalid_argument("");
             }
             catch(...){
-                throw std::invalid_argument("Invalid --random argument. Run program with --help for more info.");
+                throw std::invalid_argument("Amoount of points to be generated randomly cannot be negative.\n Invalid --random argument. Run program with --help for more info.");
             }
         }
         else if (cmd == "--svg") {
@@ -173,6 +210,9 @@ config parse_commands(std::vector<std::string>& commands){
                 throw std::invalid_argument("Invalid --output argument. Run program with --help for more info.");
             }
         }
+        else if (cmd == "--comparison") {
+            cfg.comparison_mode = true;
+        }
         else{
             throw std::logic_error("Unknown command line option passed.");
         }
@@ -195,6 +235,7 @@ void print_help(){
     std::cout << "--multithreaded:AMOUNT_OF_THREADS [executes a multithreaded version of quickhull]" << std::endl;
     std::cout << "--input:FILENAME [reads the set of points from a file instead of a cmd]" << std::endl;
     std::cout << "--output:FILENAME [writes the set of points to a file instead of a cmd]" << std::endl;
+    std::cout << "--comparsion [runs single threaded and multithreaded version and compares the times, amount of threads is 2 by default, or can be specified in the --multithreaded]" << std::endl;
 }
 
 /**

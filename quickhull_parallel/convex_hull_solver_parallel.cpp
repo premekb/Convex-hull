@@ -29,6 +29,7 @@ std::vector<point> convex_hull_solver_parallel::quickhull_parallel() {
 
     std::mutex mut;
     this->mutex = &mut;
+    this->threads_started = 2;
     std::thread t1(&convex_hull_solver_parallel::findhull, this, right_points, leftmost, rightmost);
     std::thread t2(&convex_hull_solver_parallel::findhull, this, left_points, rightmost, leftmost);
     t1.join();
@@ -70,13 +71,27 @@ void convex_hull_solver_parallel::findhull(std::vector<point> points, point poin
         }
     }
 
-    findhull(left_points, point1, max_point);
-    findhull(right_points, max_point, point2);
+
+
+    if (this->threads_started < this->threads_max){
+        std::thread t1(&convex_hull_solver_parallel::findhull, this, left_points, point1, max_point);
+        std::thread t2(&convex_hull_solver_parallel::findhull, this, right_points, max_point, point2);
+        increment_threads_started(2);
+        t1.join();
+        t2.join();
+    }
+
+    else{
+        findhull(left_points, point1, max_point);
+        findhull(right_points, max_point, point2);
+    }
 }
 
 // TODO tady asi referenci, tohle nechcu modifikovat
-convex_hull_solver_parallel::convex_hull_solver_parallel(std::vector<point> *points) {
+convex_hull_solver_parallel::convex_hull_solver_parallel(std::vector<point> *points, int threads) {
     this->points = *points;
+    this->threads_max = threads;
+    this->threads_started = 0;
 }
 
 std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_points() {
@@ -130,7 +145,7 @@ void convex_hull_solver_parallel::remove_point(point point_to_remove) {
  * @param tested_point
  * @return
  */
-bool convex_hull_solver_parallel::is_in_triangle(point t_point1, point t_point2, point t_point3, point tested_point) {
+bool convex_hull_solver_parallel::is_in_triangle(point& t_point1, point& t_point2, point& t_point3, point& tested_point) {
     double denominator = ((t_point2.y - t_point3.y) * (t_point1.x - t_point3.x) +
                           (t_point3.x - t_point2.x) * (t_point1.y - t_point3.y));
     double a = ((t_point2.y - t_point3.y) * (tested_point.x - t_point3.x) +
@@ -145,4 +160,9 @@ bool convex_hull_solver_parallel::is_in_triangle(point t_point1, point t_point2,
 void convex_hull_solver_parallel::add_to_result(point p){
     std::unique_lock<std::mutex> lock(*this->mutex);
     result.push_back(p);
+}
+
+void convex_hull_solver_parallel::increment_threads_started(int increment){
+    std::unique_lock<std::mutex> lock(*this->mutex);
+    this->threads_started += increment;
 }
