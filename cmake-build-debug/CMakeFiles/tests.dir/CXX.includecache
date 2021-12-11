@@ -10,14 +10,6 @@
 iostream
 -
 
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.cpp
-convex_hull_solver_parallel.hpp
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
-thread
-/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/thread
-math.h
--
-
 /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/quickhull_parallel/convex_hull_solver_parallel.hpp
 vector
 -

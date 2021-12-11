@@ -61,13 +61,13 @@ TEST_CASE("Quickhull 20 points"){
     };
 
     SECTION("Single-thread"){
-        convex_hull_solver solver = convex_hull_solver(&inputs);
+        convex_hull_solver solver = convex_hull_solver(inputs);
         std::vector<point> result = solver.quickhull();
         compare_result(convex_hull, result);
     }
 
     SECTION("Multi-thread"){
-        convex_hull_solver_parallel solver = convex_hull_solver_parallel(&inputs, 4);
+        convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
@@ -140,13 +140,13 @@ TEST_CASE("Quickhull 50 points"){
     };
 
     SECTION("Single-thread"){
-        convex_hull_solver solver = convex_hull_solver(&inputs);
+        convex_hull_solver solver = convex_hull_solver(inputs);
         std::vector<point> result = solver.quickhull();
         compare_result(convex_hull, result);
     }
 
     SECTION("Multi-thread"){
-        convex_hull_solver_parallel solver = convex_hull_solver_parallel(&inputs, 4);
+        convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
@@ -271,13 +271,13 @@ TEST_CASE("Quickhull 100 points"){
     };
 
     SECTION("Single-thread"){
-        convex_hull_solver solver = convex_hull_solver(&inputs);
+        convex_hull_solver solver = convex_hull_solver(inputs);
         std::vector<point> result = solver.quickhull();
         compare_result(convex_hull, result);
     }
 
     SECTION("Multi-thread"){
-        convex_hull_solver_parallel solver = convex_hull_solver_parallel(&inputs, 4);
+        convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
