@@ -1,5 +1,6 @@
 #include <vector>
 #include <chrono>
+#include <thread>
 #include "config.hpp"
 
 void start_app(std::vector<std::string>& commands);
@@ -176,13 +177,7 @@ config parse_commands(std::vector<std::string>& commands){
         if (cmd == "--help") cfg.help = true;
         else if (cmd == "--multithreaded") {
             cfg.multithreaded = true;
-            try{
-                cfg.threads = std::stoi(args.at(1));
-                if (cfg.threads <= 1) throw std::invalid_argument("");
-            }
-            catch(...){
-                throw std::invalid_argument("Invalid amount of threads. At least 2 threads needed.\n Invalid --mutlithreaded argument. Run program with --help for more info.");
-            }
+            cfg.threads = std::thread::hardware_concurrency();
         }
         else if (cmd == "--random") {
             cfg.random = true;
