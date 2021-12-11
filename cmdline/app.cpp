@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include "config.hpp"
+#include "../quickhull_parallel_future/convex_hull_solver_parallel_future.hpp"
 
 void start_app(std::vector<std::string>& commands);
 config parse_commands(std::vector<std::string>& commands);
@@ -51,7 +52,7 @@ void start_app(std::vector<std::string>& commands){
 
 std::vector<point> get_points(const config& cfg){
     if (cfg.random){
-        points_generator gen(cfg.random_amount, 10000);
+        points_generator gen(cfg.random_amount, 10000000);
         return gen.get_points();
     }
 
@@ -159,11 +160,17 @@ std::vector<point> start_quickhull_comparison(const config& cfg, std::vector<poi
     auto end_single = std::chrono::high_resolution_clock::now();
     std::cout << "Single thread: needed " << to_ms(end_single - start_single).count() << " ms to finish.\n";
 
-    auto start_parallel = std::chrono::high_resolution_clock::now();
-    convex_hull_solver_parallel solver_parallel = convex_hull_solver_parallel(points, cfg.threads);
-    std::vector<point> result_parallel = solver_parallel.quickhull_parallel();
-    auto end_parallel = std::chrono::high_resolution_clock::now();
-    std::cout << "Parallel: needed " << to_ms(end_parallel - start_parallel).count() << " ms to finish.\n";
+    auto start_parallel_mutex = std::chrono::high_resolution_clock::now();
+    convex_hull_solver_parallel solver_parallel_mutex = convex_hull_solver_parallel(points, cfg.threads);
+    std::vector<point> result_parallel_mutex = solver_parallel_mutex.quickhull_parallel();
+    auto end_parallel_mutex = std::chrono::high_resolution_clock::now();
+    std::cout << "Parallel-mutex version: needed " << to_ms(end_parallel_mutex - start_parallel_mutex).count() << " ms to finish.\n";
+
+    auto start_parallel_future = std::chrono::high_resolution_clock::now();
+    convex_hull_solver_parallel_future solver_parallel_future = convex_hull_solver_parallel_future(points, cfg.threads);
+    std::vector<point> result_parallel_future = solver_parallel_future.quickhull_parallel();
+    auto end_parallel_future = std::chrono::high_resolution_clock::now();
+    std::cout << "Parallel-future version: needed " << to_ms(end_parallel_future - start_parallel_future).count() << " ms to finish.\n";
 
     return result;
 }
@@ -238,7 +245,7 @@ void print_help(){
     std::cout << "--help [prints info about command line options]" << std::endl;
     std::cout << "--random:AMOUNT_OF_POINTS [generates random set of points in a 2D plane and finds their convex hull]" << std::endl;
     std::cout << "--svg:FILENAME [visualises the result by exporting it into an svg file]" << std::endl;
-    std::cout << "--multithreaded [executes a multithreaded version of quickhull]" << std::endl;
+    std::cout << "--multithreaded [executes a multithreaded version of quickhull, the version using mutexes is used]" << std::endl;
     std::cout << "--input:FILENAME [reads the set of points from a file instead of a cmd]" << std::endl;
     std::cout << "--output:FILENAME [writes the set of points to a file instead of a cmd]" << std::endl;
     std::cout << "--comparison [runs single threaded and multithreaded version and compares the times]" << std::endl;

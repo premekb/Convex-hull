@@ -7,6 +7,8 @@
  *
  * I paralelised the part, where the algorithm recursively divides the points into two parts and checks,
  * whether they are inside or outside the triangle.
+ *
+ * This version uses mutexes, to synchronise acces to the variable result, where
  */
 class convex_hull_solver_parallel {
 public:

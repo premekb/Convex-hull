@@ -2,6 +2,7 @@
 #include "../point.hpp"
 #include "../quickhull_single_thead/convex_hull_solver.h"
 #include "../quickhull_parallel/convex_hull_solver_parallel.hpp"
+#include "../quickhull_parallel_future/convex_hull_solver_parallel_future.hpp"
 void compare_result(std::vector<point>& expected, std::vector<point>& actual);
 
 void compare_result(std::vector<point>& expected, std::vector<point>& actual){
@@ -66,8 +67,14 @@ TEST_CASE("Quickhull 20 points"){
         compare_result(convex_hull, result);
     }
 
-    SECTION("Multi-thread"){
+    SECTION("Multi-thread-mutex"){
         convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
+        std::vector<point> result = solver.quickhull_parallel();
+        compare_result(convex_hull, result);
+    }
+
+    SECTION("Multi-thread-future"){
+        convex_hull_solver_parallel_future solver = convex_hull_solver_parallel_future(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
@@ -145,8 +152,14 @@ TEST_CASE("Quickhull 50 points"){
         compare_result(convex_hull, result);
     }
 
-    SECTION("Multi-thread"){
+    SECTION("Multi-thread-mutex"){
         convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
+        std::vector<point> result = solver.quickhull_parallel();
+        compare_result(convex_hull, result);
+    }
+
+    SECTION("Multi-thread-future"){
+        convex_hull_solver_parallel_future solver = convex_hull_solver_parallel_future(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
@@ -276,8 +289,14 @@ TEST_CASE("Quickhull 100 points"){
         compare_result(convex_hull, result);
     }
 
-    SECTION("Multi-thread"){
+    SECTION("Multi-thread-mutex"){
         convex_hull_solver_parallel solver = convex_hull_solver_parallel(inputs, 4);
+        std::vector<point> result = solver.quickhull_parallel();
+        compare_result(convex_hull, result);
+    }
+
+    SECTION("Multi-thread-future"){
+        convex_hull_solver_parallel_future solver = convex_hull_solver_parallel_future(inputs, 4);
         std::vector<point> result = solver.quickhull_parallel();
         compare_result(convex_hull, result);
     }
