@@ -238,7 +238,7 @@ void print_help(){
     std::cout << "--help [prints info about command line options]" << std::endl;
     std::cout << "--random:AMOUNT_OF_POINTS [generates random set of points in a 2D plane and finds their convex hull]" << std::endl;
     std::cout << "--svg:FILENAME [visualises the result by exporting it into an svg file]" << std::endl;
-    std::cout << "--multithreaded:AMOUNT_OF_THREADS [executes a multithreaded version of quickhull]" << std::endl;
+    std::cout << "--multithreaded [executes a multithreaded version of quickhull]" << std::endl;
     std::cout << "--input:FILENAME [reads the set of points from a file instead of a cmd]" << std::endl;
     std::cout << "--output:FILENAME [writes the set of points to a file instead of a cmd]" << std::endl;
     std::cout << "--comparison [runs single threaded and multithreaded version and compares the times, amount of threads is 2 by default, or can be specified in the --multithreaded]" << std::endl;
