@@ -59,7 +59,7 @@ void convex_hull_solver::findhull(std::vector<point> points, point point1, point
     if (points.empty()) return;
     double max_distance = -1;
     double curr_distance;
-    point max_point = points[0]; // TODO if only 2 or 1 points are present
+    point max_point = points[0];
     for (point p : points){
         curr_distance = distance_from_line(point1, point2, p);
         if (curr_distance > max_distance){
@@ -74,7 +74,7 @@ void convex_hull_solver::findhull(std::vector<point> points, point point1, point
     std::vector<point> right_points;
 
     for (point p : points){
-        if (p.x == max_point.x && p.y == max_point.y){
+        if (p == max_point || p == point1 || p == point2){
             continue;
         }
         if (!is_in_triangle(point1, point2, max_point, p)){

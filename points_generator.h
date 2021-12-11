@@ -8,7 +8,7 @@
 class points_generator {
 public:
     points_generator(unsigned long long int amountOfPoints, unsigned long long int maximumAxisLength);
-    std::vector<point>* get_points();
+    std::vector<point> get_points();
 
 private:
     unsigned long long amount_of_points;

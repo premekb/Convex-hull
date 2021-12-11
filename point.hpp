@@ -6,6 +6,10 @@ struct point {
 
     int x;
     int y;
+
+    bool operator==(const point& rhs) const{
+        return x == rhs.x && y == rhs.y;
+    }
 };
 
 std::ostream& operator<<(std::ostream &os, point const& p);

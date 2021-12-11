@@ -79,11 +79,7 @@ bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std:
     std::vector<point> hull_points_adjusted_ratio = change_ratio(hull_points, adjusted_ratio);
 
     for (point p : points_adjusted_ratio){
-        this->insert_point(p, green_color);
-    }
-
-    for (point p : hull_points_adjusted_ratio){
-        insert_point(p, red_color);
+        this->insert_point(p, red_color);
     }
 
     std::vector<std::pair<double, point>> angles = get_points_sorted_by_angle(hull_points_adjusted_ratio, point(500, 500)); //TODO center
@@ -93,6 +89,10 @@ bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std:
     }
 
     draw_line_between_points(std::make_pair(angles[angles.size() - 1].second, angles[0].second));
+
+    for (point p : hull_points_adjusted_ratio){
+        insert_point(p, green_color);
+    }
 
     this->insert_svg_ending_tag();
     this->file_stream->close();

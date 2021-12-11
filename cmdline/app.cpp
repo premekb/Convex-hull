@@ -51,7 +51,7 @@ void start_app(std::vector<std::string>& commands){
 std::vector<point> get_points(const config& cfg){
     if (cfg.random){
         points_generator gen(cfg.random_amount, 10000);
-        return *gen.get_points();
+        return gen.get_points();
     }
 
     else if (cfg.input_file){
@@ -80,16 +80,27 @@ void validate_line(std::string& line){
     int coma_counter = 0;
     bool number_after_coma = false;
     bool number_before_coma = false;
-    std::string::const_iterator it = line.begin();
-    while (it != line.end() && (std::isdigit(*it) || *it == ',')){
-        ++it;
-        if (*it == ','){
+    bool contains_forbidden_characters = false;
+
+    for (char ch : line){
+        if (ch == ','){
             coma_counter++;
+            continue;
         }
-        if (coma_counter == 1 && std::isdigit(*it)) number_after_coma = true;
-        if (coma_counter == 0 && std::isdigit(*it)) number_before_coma = true;
+
+        if (ch == ' '){
+            continue;
+        }
+
+        if (!std::isdigit(ch)) {
+            contains_forbidden_characters = true;
+            break;
+        }
+
+        if (coma_counter == 1 && std::isdigit(ch)) number_after_coma = true;
+        if (coma_counter == 0 && std::isdigit(ch)) number_before_coma = true;
     }
-    if (!(!line.empty() && it == line.end() && coma_counter == 1 && number_after_coma && number_before_coma)) {
+    if (coma_counter == 0 || !number_after_coma || !number_before_coma || contains_forbidden_characters){
         throw std::logic_error("Invalid input format. The required format is as follows: \n"
                                "point1.x_axis, point1.y_axis\n"
                                "point2.x_axis, point2.y_axis\n"
@@ -226,7 +237,7 @@ void print_help(){
     std::cout << "--------------------------------------------------------------------------------------" << std::endl;
 
     std::cout << "The input format for points is: point_x_axis, point_y_axis endline" << std::endl;
-    std::cout << "Accepts only positive integers" << std::endl << std::endl; // TODO mozna ne
+    std::cout << "Accepts only positive integers" << std::endl << std::endl;
 
     std::cout << "Available command line options, uppercase letters, that follow after a colon need to be replaced with a value:" << std::endl;
     std::cout << "--help [prints info about command line options]" << std::endl;
@@ -235,7 +246,7 @@ void print_help(){
     std::cout << "--multithreaded:AMOUNT_OF_THREADS [executes a multithreaded version of quickhull]" << std::endl;
     std::cout << "--input:FILENAME [reads the set of points from a file instead of a cmd]" << std::endl;
     std::cout << "--output:FILENAME [writes the set of points to a file instead of a cmd]" << std::endl;
-    std::cout << "--comparsion [runs single threaded and multithreaded version and compares the times, amount of threads is 2 by default, or can be specified in the --multithreaded]" << std::endl;
+    std::cout << "--comparison [runs single threaded and multithreaded version and compares the times, amount of threads is 2 by default, or can be specified in the --multithreaded]" << std::endl;
 }
 
 /**
