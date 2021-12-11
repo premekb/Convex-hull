@@ -241,7 +241,7 @@ void print_help(){
     std::cout << "--multithreaded [executes a multithreaded version of quickhull]" << std::endl;
     std::cout << "--input:FILENAME [reads the set of points from a file instead of a cmd]" << std::endl;
     std::cout << "--output:FILENAME [writes the set of points to a file instead of a cmd]" << std::endl;
-    std::cout << "--comparison [runs single threaded and multithreaded version and compares the times, amount of threads is 2 by default, or can be specified in the --multithreaded]" << std::endl;
+    std::cout << "--comparison [runs single threaded and multithreaded version and compares the times]" << std::endl;
 }
 
 /**
