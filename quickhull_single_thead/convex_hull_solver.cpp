@@ -25,11 +25,6 @@ std::vector<point> convex_hull_solver::quickhull() {
     return result;
 }
 
-// TODO tady asi referenci, tohle nechcu modifikovat
-convex_hull_solver::convex_hull_solver(std::vector<point> *points) {
-    this->points = *points;
-}
-
 std::vector<point> convex_hull_solver::find_leftmost_and_rightmost_points() const{
     std::vector<point> result;
     point leftmost = point(-1, -1);
@@ -97,15 +92,6 @@ double convex_hull_solver::distance_from_line(point& line_point1, point& line_po
    double numerator = abs((line_point2.x - line_point1.x) * (line_point1.y - tested_point.y) - (line_point1.x - tested_point.x) * (line_point2.y - line_point1.y));
    double denominator = sqrt((line_point2.x - line_point1.x) * (line_point2.x - line_point1.x) + (line_point2.y - line_point1.y) * (line_point2.y - line_point1.y));
    return numerator / denominator;
-}
-
-void convex_hull_solver::remove_point(point point_to_remove) {
-    // TODO if two generated poitns are the same, then continue in generator
-    for (int i = 0; i < points.size(); i++){
-        if (points[i].x == point_to_remove.x && points[i].y == point_to_remove.y){
-            points.erase(points.begin(), points.begin() + i);
-        }
-    }
 }
 
 /**

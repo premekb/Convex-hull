@@ -140,13 +140,13 @@ void print_points(std::ostream& out, const std::vector<point>& points, const std
 
 std::vector<point> start_quickhull(const config& cfg, std::vector<point>& points){
     if (cfg.multithreaded){
-        convex_hull_solver_parallel solver = convex_hull_solver_parallel(&points, cfg.threads);
+        convex_hull_solver_parallel solver = convex_hull_solver_parallel(points, cfg.threads);
         std::vector<point> result = solver.quickhull_parallel();
         return result;
     }
 
     else{
-        convex_hull_solver solver = convex_hull_solver(&points);
+        convex_hull_solver solver = convex_hull_solver(points);
         std::vector<point> result = solver.quickhull();
         return result;
     }
@@ -154,13 +154,13 @@ std::vector<point> start_quickhull(const config& cfg, std::vector<point>& points
 
 std::vector<point> start_quickhull_comparison(const config& cfg, std::vector<point>& points){
     auto start_single = std::chrono::high_resolution_clock::now();
-    convex_hull_solver solver = convex_hull_solver(&points);
+    convex_hull_solver solver = convex_hull_solver(points);
     std::vector<point> result = solver.quickhull();
     auto end_single = std::chrono::high_resolution_clock::now();
     std::cout << "Single thread: needed " << to_ms(end_single - start_single).count() << " ms to finish.\n";
 
     auto start_parallel = std::chrono::high_resolution_clock::now();
-    convex_hull_solver_parallel solver_parallel = convex_hull_solver_parallel(&points, cfg.threads);
+    convex_hull_solver_parallel solver_parallel = convex_hull_solver_parallel(points, cfg.threads);
     std::vector<point> result_parallel = solver_parallel.quickhull_parallel();
     auto end_parallel = std::chrono::high_resolution_clock::now();
     std::cout << "Parallel: needed " << to_ms(end_parallel - start_parallel).count() << " ms to finish.\n";
