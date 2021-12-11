@@ -1,6 +1,9 @@
 #ifndef SEMESTRALKA_CONFIG_HPP
 #define SEMESTRALKA_CONFIG_HPP
 
+/**
+ * Configuration parsed from the command line arguments.
+ */
 struct config {
     bool help;
 

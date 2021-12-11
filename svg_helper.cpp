@@ -3,6 +3,12 @@
 #include "svg_helper.h"
 #include <math.h>
 
+/**
+ * Inserts a single points into the svg file.
+ *
+ * @param point
+ * @param color
+ */
 void svg_helper::insert_point(point point, svg_helper::point_color color) {
     if (color == black_color){
         *this->file_stream << "<circle cx=\"" <<  point.x << "\" cy=\""<< point.y << "\" r=\"2\"/>" << std::endl;
@@ -44,6 +50,11 @@ bool svg_helper::export_to_svg_file(const std::vector<point>& points) {
     return true;
 }
 
+/**
+ * Connects two points with a line
+ *
+ * @param points
+ */
 void svg_helper::draw_line_between_points(std::pair<point, point> points) {
     *this->file_stream << "<line x1=\"" <<
     points.first.x << "\" y1=\""<<
@@ -53,6 +64,13 @@ void svg_helper::draw_line_between_points(std::pair<point, point> points) {
     << std::endl;
 }
 
+/**
+ * Exports points to a .svg file and connects the convex hull points with a line.
+ *
+ * @param points
+ * @param hull_points
+ * @return
+ */
 bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std::vector<point> &hull_points) {
     this->insert_svg_header();
 
@@ -84,6 +102,10 @@ bool svg_helper::export_to_svg_file(const std::vector<point> &points, const std:
 
 /**
  * Calculates the angle of points in respect to a given center and sorts them.
+ *
+ * I am not completely sure with the math behind it, however it uses barycentric coordinates in respect to a center of
+ * the 2 plane, and sorts the points by the angle they hold to the center.
+ *
  * @return
  */
 std::vector<std::pair<double, point>>

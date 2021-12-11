@@ -30,7 +30,7 @@ convex_hull_solver::convex_hull_solver(std::vector<point> *points) {
 }
 
 std::vector<point> convex_hull_solver::find_leftmost_and_rightmost_points() {
-    auto *result = new std::vector<point>;
+    std::vector<point> result;
     point leftmost = point(-1, -1);
     point rightmost = point(-1, -1);
     for (point cur_point : this->points){
@@ -45,10 +45,10 @@ std::vector<point> convex_hull_solver::find_leftmost_and_rightmost_points() {
         }
     }
 
-    result->push_back(leftmost);
-    result->push_back(rightmost);
+    result.push_back(leftmost);
+    result.push_back(rightmost);
 
-    return *result;
+    return result;
 }
 
 bool convex_hull_solver::is_point_left(point& leftmost, point& rightmost, point& tested_point) {

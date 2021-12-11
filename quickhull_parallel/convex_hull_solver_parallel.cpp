@@ -93,7 +93,7 @@ convex_hull_solver_parallel::convex_hull_solver_parallel(std::vector<point> *poi
 }
 
 std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_points() {
-    auto *result = new std::vector<point>;
+    std::vector<point> result;
     point leftmost = point(-1, -1);
     point rightmost = point(-1, -1);
     for (point cur_point : this->points){
@@ -108,10 +108,10 @@ std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_poin
         }
     }
 
-    result->push_back(leftmost);
-    result->push_back(rightmost);
+    result.push_back(leftmost);
+    result.push_back(rightmost);
 
-    return *result;
+    return result;
 }
 
 bool convex_hull_solver_parallel::is_point_left(point& leftmost, point& rightmost, point& tested_point) {

@@ -2,7 +2,12 @@
 #include <vector>
 #include "../point.hpp"
 
-
+/**
+ * Implements the quickhull algorithm as described in pseudocode on wikipedia.
+ *
+ * I paralelised the part, where the algorithm recursively divides the points into two parts and checks,
+ * whether they are inside or outside the triangle.
+ */
 class convex_hull_solver_parallel {
 public:
     std::vector<point> quickhull_parallel();

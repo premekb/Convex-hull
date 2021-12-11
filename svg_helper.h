@@ -3,7 +3,12 @@
 #include <fstream>
 #include "point.hpp"
 
-
+/**
+ * Exports vector of points on a 2D plane to a .svg file.
+ *
+ * It only supports positive points.
+ *
+ */
 class svg_helper {
 public:
     std::fstream* file_stream;

@@ -2,7 +2,9 @@
 #include <vector>
 #include "../point.hpp"
 
-
+/**
+ * Implements the quickhull algorithm as described in pseudocode on wikipedia.
+ */
 class convex_hull_solver {
 public:
     std::vector<point> quickhull();
