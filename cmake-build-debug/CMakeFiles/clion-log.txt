@@ -1,4 +1,0 @@
-"/Users/premekbelka/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/211.7628.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka"
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/premekbelka/Documents/Semestr 3/PJC/semestralka/pjc-semestralka/cmake-build-debug
