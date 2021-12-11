@@ -2,13 +2,6 @@
 #include "thread"
 #include <math.h>
 
-/**
- * TODO doplicate result
- * 100,100
- * 250,250
- * 500,500
- * 700,400
- */
 
 std::vector<point> convex_hull_solver_parallel::quickhull_parallel() {
     result = find_leftmost_and_rightmost_points();
@@ -93,7 +86,7 @@ convex_hull_solver_parallel::convex_hull_solver_parallel(std::vector<point> *poi
     this->threads_started = 0;
 }
 
-std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_points() {
+std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_points() const{
     std::vector<point> result;
     point leftmost = point(-1, -1);
     point rightmost = point(-1, -1);
@@ -115,12 +108,12 @@ std::vector<point> convex_hull_solver_parallel::find_leftmost_and_rightmost_poin
     return result;
 }
 
-bool convex_hull_solver_parallel::is_point_left(point& leftmost, point& rightmost, point& tested_point) {
+bool convex_hull_solver_parallel::is_point_left(point& leftmost, point& rightmost, point& tested_point) const{
     return (rightmost.x - leftmost.x) * (tested_point.y - leftmost.y) - (tested_point.x - leftmost.x) * (rightmost.y - leftmost.y) > 0;
 }
 
 
-double convex_hull_solver_parallel::distance_from_line(point& line_point1, point& line_point2, point& tested_point) {
+double convex_hull_solver_parallel::distance_from_line(point& line_point1, point& line_point2, point& tested_point) const{
     double numerator = abs((line_point2.x - line_point1.x) * (line_point1.y - tested_point.y) - (line_point1.x - tested_point.x) * (line_point2.y - line_point1.y));
     double denominator = sqrt((line_point2.x - line_point1.x) * (line_point2.x - line_point1.x) + (line_point2.y - line_point1.y) * (line_point2.y - line_point1.y));
     return numerator / denominator;
@@ -144,7 +137,7 @@ void convex_hull_solver_parallel::remove_point(point point_to_remove) {
  * @param tested_point
  * @return
  */
-bool convex_hull_solver_parallel::is_in_triangle(point& t_point1, point& t_point2, point& t_point3, point& tested_point) {
+bool convex_hull_solver_parallel::is_in_triangle(point& t_point1, point& t_point2, point& t_point3, point& tested_point) const{
     double denominator = ((t_point2.y - t_point3.y) * (t_point1.x - t_point3.x) +
                           (t_point3.x - t_point2.x) * (t_point1.y - t_point3.y));
     double a = ((t_point2.y - t_point3.y) * (tested_point.x - t_point3.x) +
