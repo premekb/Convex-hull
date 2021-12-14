@@ -52,7 +52,7 @@ void start_app(std::vector<std::string>& commands){
 
 std::vector<point> get_points(const config& cfg){
     if (cfg.random){
-        points_generator gen(cfg.random_amount, 10000000);
+        points_generator gen(cfg.random_amount, 10000);
         return gen.get_points();
     }
 
