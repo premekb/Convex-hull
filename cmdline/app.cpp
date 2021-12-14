@@ -128,13 +128,13 @@ void print_result(const config& cfg, const std::vector<point>& points, const std
 }
 
 void print_points(std::ostream& out, const std::vector<point>& points, const std::vector<point>& result){
-    out << "Input points set:" << std::endl;
-    for (const point& p : points){
+    out << "Convex hull:" << std::endl;
+    for (const point& p : result){
         out << p;
     }
     out << "##################################" << std::endl;
-    out << "Convex hull:" << std::endl;
-    for (const point& p : result){
+    out << "Input points set:" << std::endl;
+    for (const point& p : points){
         out << p;
     }
 }
