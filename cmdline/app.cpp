@@ -36,7 +36,7 @@ void start_app(std::vector<std::string>& commands){
     std::vector<point> result;
     validate_cfg(cfg);
 
-    if (cfg.help) print_help();
+    //if (cfg.help) print_help();
 
     std::vector<point> points = get_points(cfg);
 
@@ -181,7 +181,10 @@ config parse_commands(std::vector<std::string>& commands){
     for (const std::string& command_with_option : commands){
         auto args = split(command_with_option, ':');
         auto cmd = args.at(0);
-        if (cmd == "--help") cfg.help = true;
+        if (cmd == "--help") {
+            cfg.help = true;
+            print_help();
+        }
         else if (cmd == "--multithreaded") {
             cfg.multithreaded = true;
             cfg.threads = std::thread::hardware_concurrency();

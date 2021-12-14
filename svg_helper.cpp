@@ -1,7 +1,7 @@
 #include <vector>
 #include <math.h>
+#include <algorithm>
 #include "svg_helper.h"
-#include <math.h>
 
 /**
  * Inserts a single points into the svg file.

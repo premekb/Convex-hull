@@ -1,5 +1,6 @@
 #include "convex_hull_solver_parallel.hpp"
 #include "thread"
+#include <mutex>
 #include <math.h>
 
 
